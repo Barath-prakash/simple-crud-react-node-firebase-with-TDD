@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parent component full test Function calls test 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="notifications-wrapper"
+    style={Object {}}
+  />
+  <div>
+    <h4
+      style={
+        Object {
+          "float": "left",
+        }
+      }
+    >
+      Employees List
+    </h4>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "float": "right",
+        }
+      }
+      type="button"
+    >
+      Add employee
+    </button>
+  </div>
+  <br />
+  <br />
+  <table
+    className="table table-striped table-bordered table-hover"
+    id="empList"
+  >
+    <thead>
+      <tr>
+        <th>
+          Multiple delete
+        </th>
+        <th>
+          Employee name
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          DOB
+        </th>
+        <th>
+          Age
+        </th>
+        <th>
+          Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          colSpan="7"
+        >
+          No employees found
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

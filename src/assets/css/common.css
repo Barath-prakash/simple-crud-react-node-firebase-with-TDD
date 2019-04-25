@@ -1,0 +1,17 @@
+.fld-error {
+    font-size: 13px;
+    color: red;
+    margin-left: 3px;
+}
+.loading {
+      /* The image used */
+      background-image: url(../images/loading.gif);
+
+      /* Full height */
+      height: 100%; 
+  
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+}

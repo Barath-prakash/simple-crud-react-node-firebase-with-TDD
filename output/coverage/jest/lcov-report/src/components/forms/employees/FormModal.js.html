@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/forms/employees/FormModal.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/forms/employees</a> FormModal.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>27/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>35/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>27/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import moment from 'moment';
+import Datepicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import Validator from 'validator';
+import { MSG } from 'shared/commonMessages/messages';
+moment.suppressDeprecationWarnings = true;
+&nbsp;
+class FormModal extends Component {
+    state = {
+            data: {
+                empId: "",
+                firstName: "",
+                lastName: "",
+                email: "",
+                gender: "",
+                dateOfBirth: "",
+                age: ""
+            },
+            errors: {},
+            loading: false
+        }
+&nbsp;
+    componentDidUpdate(prevProps, prevState) {
+       <span class="missing-if-branch" title="if path not taken" >I</span>if(prevProps.employee !== this.props.employee) {
+          let employee = <span class="cstat-no" title="statement not covered" >this.props.employee;</span>
+<span class="cstat-no" title="statement not covered" >          this.setState({</span>
+            data: {
+                empId: employee.empId,
+                firstName: employee.firstName,
+                lastName: employee.lastName,
+                email: employee.email,
+                gender: employee.gender,
+                dateOfBirth: employee.dateOfBirth,
+                age: employee.age
+            }
+          })
+       }
+    }
+&nbsp;
+    handleCloseFormModal = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        console.log("in")</span>
+<span class="cstat-no" title="statement not covered" >        this.resetForm();</span>
+<span class="cstat-no" title="statement not covered" >        this.props.employeeFormMoalClose();</span>
+    }
+&nbsp;
+    handleChange = (e) =&gt; this.setState({ data: {...this.state.data, [e.target.name]: e.target.value } })
+    
+    handleDateChange = (date) =&gt; {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(date !== null &amp;&amp; date !== "Invalid date") {
+            this.setState({ data: { ...this.state.data, dateOfBirth: date } }, () =&gt; {
+                this.setState({ data: { ...this.state.data, age: moment().diff(moment(this.state.data.dateOfBirth).format('L'), 'years') } })
+            })
+        } else {
+<span class="cstat-no" title="statement not covered" >            this.setState({ data: { ...this.state.data, dateOfBirth: "", age: "" } })</span>
+        }
+    }
+    
+    handleSubmit = (e) =&gt; {
+        e.preventDefault();
+        let data = this.state.data;
+        const errors = this.validate(data);
+        this.setState({ errors });
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(Object.keys(errors).length === 0) {
+<span class="cstat-no" title="statement not covered" >            this.setState({ loading: true })</span>
+<span class="cstat-no" title="statement not covered" >            if(this.state.data.empId) {</span>
+<span class="cstat-no" title="statement not covered" >                return this.props.updateEmployee(data).then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.handleCloseFormModal())</span>.catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ loading: false }))</span></span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                return this.props.addEmployee(data).then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >this.handleCloseFormModal())</span>.catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ loading: false }))</span></span>
+            }
+        }
+    }
+&nbsp;
+    validate = (data) =&gt; {
+        const errors = {};
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(Validator.isEmpty(data.firstName)) {
+           errors['firstName'] = MSG['firstName_cannot_empty'];
+        } else <span class="cstat-no" title="statement not covered" >if(!Validator.isLength(data.firstName, { min: 3 })) {</span>
+<span class="cstat-no" title="statement not covered" >           errors['firstName'] = MSG['firstName_length'];</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(Validator.isEmpty(data.lastName)) {
+            errors['lastName'] = MSG['lastName_cannot_empty'];
+        } else <span class="cstat-no" title="statement not covered" >if(!Validator.isLength(data.lastName, { min: 2 })) {</span>
+<span class="cstat-no" title="statement not covered" >            errors['lastName'] = MSG['lastName_length'];</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(Validator.isEmpty(data.email)) {
+            errors['email'] = MSG['email_cannot_empty'];
+        } else <span class="cstat-no" title="statement not covered" >if(!Validator.isEmail(data.email)) {</span>
+<span class="cstat-no" title="statement not covered" >            errors['email'] = MSG['email_invalid'];</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(Validator.isEmpty(data.gender)) {
+            errors['gender'] = MSG['gender_cannot_empty'];
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(Validator.isEmpty(data.dateOfBirth.toString().trim())) {
+<span class="cstat-no" title="statement not covered" >            errors['dateOfBirth'] = MSG['dob_cannot_empty'];</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(Validator.isEmpty(data.age.toString().trim()) || data.age === 0) {
+            errors['age'] = MSG['age_cannot_empty'];
+        }
+&nbsp;
+        return errors;
+    }
+    
+    resetForm = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >       this.setState({</span>
+           data: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            gender: "",
+            dateOfBirth: "",
+            age: ""
+           },
+           errors: {},
+           loading: false
+       })
+    }
+&nbsp;
+    render() {
+        const { employeeFormModal } = this.props;
+        const { data, loading, errors } = this.state;
+        return (
+            &lt;Modal 
+                id="modal"
+                size="lg" 
+                backdrop="static"
+                isOpen={employeeFormModal} 
+                toggle={this.handleCloseFormModal} 
+                &gt;
+                &lt;ModalHeader toggle={this.handleCloseFormModal}&gt;
+                    {data.empId ? <span class="branch-0 cbranch-no" title="branch not covered" >"Update employee" </span>: "Add employee"}
+                &lt;/ModalHeader&gt;
+                &lt;form onSubmit={this.handleSubmit}&gt;
+                &lt;ModalBody className="modal-overlay"&gt;
+                    &lt;div className="form-group"&gt;
+                        &lt;label htmlFor="firstName"&gt;First name:&lt;/label&gt;
+                        &lt;input type="text" className="form-control" id="firstName" name="firstName" value={data.firstName ? <span class="branch-0 cbranch-no" title="branch not covered" >data.firstName:</span> ""} onChange={this.handleChange} placeholder="Enter first name" maxLength="75"/&gt;
+                        {errors.firstName &amp;&amp; &lt;span className="fld-error"&gt;{errors.firstName}&lt;/span&gt;}
+                    &lt;/div&gt;
+                    &lt;div className="form-group"&gt;
+                        &lt;label htmlFor="lastName"&gt;Last name:&lt;/label&gt;
+                        &lt;input type="text" className="form-control" id="lastName" name="lastName" value={data.lastName ? <span class="branch-0 cbranch-no" title="branch not covered" >data.lastName:</span> ""} onChange={this.handleChange} placeholder="Enter last name" maxLength="50"/&gt;
+                        {errors.lastName &amp;&amp; &lt;span className="fld-error"&gt;{errors.lastName}&lt;/span&gt;}
+                    &lt;/div&gt;
+                    &lt;div className="form-group"&gt;
+                        &lt;label htmlFor="email"&gt;Email:&lt;/label&gt;
+                        &lt;input type="email" className="form-control" id="email" name="email" value={data.email ? <span class="branch-0 cbranch-no" title="branch not covered" >data.email:</span> ""} onChange={this.handleChange} placeholder="Enter email address" maxLength="200"/&gt;
+                        {errors.email &amp;&amp; &lt;span className="fld-error"&gt;{errors.email}&lt;/span&gt;}
+                    &lt;/div&gt;
+                    &lt;div className="form-group"&gt;
+                        &lt;label htmlFor="email" id="gender"&gt;Gender:&lt;/label&gt;
+                            &lt;label className="btn btn-default" style={{marginTop: 5}}&gt;
+                                &lt;input type="radio" id="gender-male" name="gender" value="male" onChange={this.handleChange} checked={data.gender &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >data.gender === "male"}</span>/&gt; Male
+                            &lt;/label&gt; 
+                            &lt;label className="btn btn-default" style={{marginTop: 5}}&gt;
+                                &lt;input type="radio" id="gender-female" name="gender" value="female" onChange={this.handleChange} checked={data.gender &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >data.gender === "female"}</span>/&gt; Female
+                            &lt;/label&gt;&lt;br/&gt; 
+                        {errors.gender &amp;&amp; &lt;span className="fld-error"&gt;{errors.gender}&lt;/span&gt;}
+                    &lt;/div&gt;  
+                    &lt;div&gt;
+                    &lt;label htmlFor="dateOfBirth"&gt;Date of birth:&lt;/label&gt;&lt;br/&gt;
+                    &lt;Datepicker
+                        id="datepicker"
+                        selected={(data.dateOfBirth &amp;&amp; data.dateOfBirth !== "Invalid date") ? new Date(data.dateOfBirth) : null}
+                        onChange={this.handleDateChange}
+                        peekNextMonth={true}
+                        showMonthDropdown={true}
+                        showYearDropdown={true}
+                        dropdownMode="select"
+                        placeholderText="DD-MM-YYYY"
+                        dateFormat="dd-MM-yyyy"
+                        shouldCloseOnSelect={true}
+                        isClearable={true}
+                        maxDate={new Date()}
+                    /&gt;
+                    &lt;br/&gt;
+                    {errors.dateOfBirth &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;span className="fld-error"&gt;{errors.dateOfBirth}&lt;/span&gt;}</span>
+                    &lt;/div&gt;
+                    &lt;div className="loading"&gt;&lt;/div&gt;
+                    &lt;div className="form-group" style={{marginTop: 10}}&gt;
+                        &lt;label htmlFor="age"&gt;Age:&lt;/label&gt;
+                        &lt;input type="text" className="form-control" id="age" value={data.age ? <span class="branch-0 cbranch-no" title="branch not covered" >data.age:</span> ""} maxLength="2" readOnly placeholder="Select your date of birth to fill this field"/&gt;
+                        {errors.age &amp;&amp; &lt;span className="fld-error"&gt;{errors.age}&lt;/span&gt;}
+                    &lt;/div&gt;
+                &lt;/ModalBody&gt;
+                &lt;ModalFooter&gt;
+                    &lt;Button id="cancelButton" variant="secondary" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.handleCloseFormModal()}</span> disabled={loading}&gt;Close&lt;/Button&gt;
+                    &lt;Button id="submitButton" type="submit" variant="primary" disabled={loading}&gt;Save&lt;/Button&gt;
+                &lt;/ModalFooter&gt;
+                &lt;/form&gt; 
+            &lt;/Modal&gt;
+        )
+    }
+}
+&nbsp;
+export default FormModal;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 25 2019 14:58:16 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

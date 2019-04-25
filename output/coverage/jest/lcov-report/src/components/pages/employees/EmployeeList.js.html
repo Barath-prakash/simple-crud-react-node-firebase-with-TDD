@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/pages/employees/EmployeeList.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/components/pages/employees</a> EmployeeList.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.55% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/14</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import moment from 'moment';
+&nbsp;
+const EmployeeList = ({ employees, editEmployeeL, deleteEmployee, mDelete, mDeleteEmpId, deleteMultipleEmployees }) =&gt; {
+&nbsp;
+    const [value, setValue] = useState({});
+&nbsp;
+    const handleEmpChecked = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >        value[e.target.id] = e.target.checked;</span>
+<span class="cstat-no" title="statement not covered" >        setValue(value);</span>
+<span class="cstat-no" title="statement not covered" >        mDeleteEmpId({checked: e.target.checked, empId: e.target.id });</span>
+    }
+&nbsp;
+    const tableBodyDiv = (
+        (employees !== undefined &amp;&amp; employees.length &gt; 0) &amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered" >        employees.map(<span class="fstat-no" title="function not covered" >(e</span>mployee, index) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return (</span>
+            &lt;tr key={index} id="dataRow"&gt;
+                &lt;td style={{textAlign: "center"}}&gt;
+                    &lt;input type="checkbox" checked={value[employee.empId] ? true : false} id={employee.empId} onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >handleEmpChecked(e)}</span>/&gt;
+                &lt;/td&gt;
+                &lt;td&gt;{employee.firstName +" "+ employee.lastName}&lt;/td&gt;
+                &lt;td&gt;{employee.email}&lt;/td&gt;
+                &lt;td&gt;{employee.gender}&lt;/td&gt;
+                &lt;td&gt;{moment(employee.dateOfBirth).format("DD-MM-YYYY")}&lt;/td&gt;
+                &lt;td&gt;{employee.age}&lt;/td&gt;
+                &lt;td&gt;
+                &lt;Button id="editBtn" variant="success" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >editEmployeeL(employee.empId)}</span>&gt;Edit&lt;/Button&gt;
+                &lt;Button id="deleteBtn" variant="danger" style={{marginLeft: 5}} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >deleteEmployee(employee.empId)}</span>&gt;Delete&lt;/Button&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        )
+        })
+    )
+&nbsp;
+    const emptyDiv = &lt;tr&gt;&lt;td colSpan="7"&gt;No employees found&lt;/td&gt;&lt;/tr&gt;
+    
+    return (
+            &lt;Table id="empList" striped bordered hover&gt;
+                &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Multiple delete&lt;/th&gt;
+                    &lt;th&gt;Employee name&lt;/th&gt;
+                    &lt;th&gt;Email&lt;/th&gt;
+                    &lt;th&gt;Gender&lt;/th&gt;
+                    &lt;th&gt;DOB&lt;/th&gt;
+                    &lt;th&gt;Age&lt;/th&gt;
+                    &lt;th&gt;Action&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    {(employees &amp;&amp; employees.length &gt; 0) ? <span class="branch-0 cbranch-no" title="branch not covered" >tableBodyDiv </span>: emptyDiv}
+                    {mDelete &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >                    &lt;tr&gt;</span>
+                    &lt;td style={{textAlign: "center"}}&gt;
+                        &lt;Button  id="editBtn1" variant="danger" style={{marginLeft: 5}} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >deleteMultipleEmployees()}</span>&gt;Delete&lt;/Button&gt;
+                    &lt;/td&gt;
+                    &lt;td colSpan="6"&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    }
+                &lt;/tbody&gt;
+            &lt;/Table&gt;
+    )
+}
+&nbsp;
+export default EmployeeList;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 25 2019 14:58:16 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
