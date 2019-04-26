@@ -41,12 +41,11 @@ class FormModal extends Component {
     }
 
     handleCloseFormModal = () => {
-        console.log("in")
         this.resetForm();
         this.props.employeeFormMoalClose();
     }
 
-    handleChange = (e) => this.setState({ data: {...this.state.data, [e.target.name]: e.target.value } })
+    handleChange = (e) => this.setState({ data: {...this.state.data, [e.target.name]: e.target.value } });
     
     handleDateChange = (date) => {
         if(date !== null && date !== "Invalid date") {
@@ -142,17 +141,17 @@ class FormModal extends Component {
                 <ModalBody className="modal-overlay">
                     <div className="form-group">
                         <label htmlFor="firstName">First name:</label>
-                        <input type="text" className="form-control" id="firstName" name="firstName" value={data.firstName ? data.firstName: ""} onChange={this.handleChange} placeholder="Enter first name" maxLength="75"/>
+                        <input type="text" className="form-control" id="fn" name="firstName" value={data.firstName ? data.firstName: ""} onChange={this.handleChange} placeholder="Enter first name" maxLength="75"/>
                         {errors.firstName && <span className="fld-error">{errors.firstName}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="lastName">Last name:</label>
-                        <input type="text" className="form-control" id="lastName" name="lastName" value={data.lastName ? data.lastName: ""} onChange={this.handleChange} placeholder="Enter last name" maxLength="50"/>
+                        <input type="text" className="form-control" id="ln" name="lastName" value={data.lastName ? data.lastName: ""} onChange={this.handleChange} placeholder="Enter last name" maxLength="50"/>
                         {errors.lastName && <span className="fld-error">{errors.lastName}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
-                        <input type="email" className="form-control" id="email" name="email" value={data.email ? data.email: ""} onChange={this.handleChange} placeholder="Enter email address" maxLength="200"/>
+                        <input type="email" className="form-control" id="em" name="email" value={data.email ? data.email: ""} onChange={this.handleChange} placeholder="Enter email address" maxLength="200"/>
                         {errors.email && <span className="fld-error">{errors.email}</span>}
                     </div>
                     <div className="form-group">
@@ -187,12 +186,12 @@ class FormModal extends Component {
                     <div className="loading"></div>
                     <div className="form-group" style={{marginTop: 10}}>
                         <label htmlFor="age">Age:</label>
-                        <input type="text" className="form-control" id="age" value={data.age ? data.age: ""} maxLength="2" readOnly placeholder="Select your date of birth to fill this field"/>
+                        <input type="text" className="form-control" id="ag" value={data.age ? data.age: ""} maxLength="2" readOnly placeholder="Select your date of birth to fill this field"/>
                         {errors.age && <span className="fld-error">{errors.age}</span>}
                     </div>
                 </ModalBody>
                 <ModalFooter>
-                    <Button id="cancelButton" variant="secondary" onClick={() => this.handleCloseFormModal()} disabled={loading}>Close</Button>
+                    <Button id="cancelButton" type="button" variant="secondary" onClick={this.handleCloseFormModal} disabled={loading}>Close</Button>
                     <Button id="submitButton" type="submit" variant="primary" disabled={loading}>Save</Button>
                 </ModalFooter>
                 </form> 

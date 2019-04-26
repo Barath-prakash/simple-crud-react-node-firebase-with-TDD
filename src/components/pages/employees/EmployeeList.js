@@ -55,7 +55,7 @@ const EmployeeList = ({ employees, editEmployeeL, deleteEmployee, mDelete, mDele
                     {mDelete &&
                     <tr>
                     <td style={{textAlign: "center"}}>
-                        <Button  id="editBtn1" variant="danger" style={{marginLeft: 5}} onClick={() => deleteMultipleEmployees()}>Delete</Button>
+                        <Button id="editBtn1" variant="danger" style={{marginLeft: 5}} onClick={() => deleteMultipleEmployees()}>Delete</Button>
                     </td>
                     <td colSpan="6"></td>
                     </tr>
