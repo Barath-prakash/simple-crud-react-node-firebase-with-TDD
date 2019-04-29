@@ -133,7 +133,7 @@ class EmployeePage extends Component {
     }
 
     notifyMsgFn = (message, level) => {
-        this.notifyMsg && this.notifyMsg.addNotification({
+        this.notifyMsg.addNotification({
             position: "tc",
             message: message,
             level: level
