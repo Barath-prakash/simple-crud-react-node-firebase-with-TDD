@@ -30,8 +30,8 @@ class EmployeePage extends Component {
         mDeleteEmpArr: []
     }
 
-    componentDidMount() {
-        this.fetchAllEmployees();
+    async componentDidMount() {
+        await this.fetchAllEmployees();
     }
 
     // P
@@ -39,7 +39,6 @@ class EmployeePage extends Component {
         return this.props.fetchAllEmployees1();
     }
  
-    // P
     employeeFormMoalOpen = () => {
         return this.props.employeeFormMoalOpen1();
     }
@@ -96,7 +95,7 @@ class EmployeePage extends Component {
 
     mDeleteEmpId = (empData) => {
       let empIdArr = [...this.state.mDeleteEmpArr];
-      if(empData.checked) {
+      if(empData && empData.checked) {
         empIdArr.push(empData.empId);
       } else {
         let existIdInx = empIdArr.findIndex(data => data === empData.empId)
@@ -133,7 +132,7 @@ class EmployeePage extends Component {
     }
 
     notifyMsgFn = (message, level) => {
-        this.notifyMsg.addNotification({
+        this.notifyMsg && this.notifyMsg.addNotification({
             position: "tc",
             message: message,
             level: level

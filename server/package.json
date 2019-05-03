@@ -13,11 +13,17 @@
   "author": "Bharath",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^2.4.8",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "firebase": "^5.9.2",
-    "moment": "^2.24.0"
+    "fs": "0.0.1-security",
+    "graphql": "^14.2.1",
+    "graphql-tools": "^4.0.4",
+    "moment": "^2.24.0",
+    "notarealdb": "^0.2.2"
   },
   "babel": {
     "presets": [

@@ -128,7 +128,8 @@
     "watchPlugins": [
       "/home/p10user/Project-Development/React/simple-crud-react-node/node_modules/jest-watch-typeahead/filename.js",
       "/home/p10user/Project-Development/React/simple-crud-react-node/node_modules/jest-watch-typeahead/testname.js"
-    ]
+    ],
+    "clearMocks": true
   },
   "babel": {
     "presets": [

@@ -23,23 +23,58 @@ import { Modal, ModalHeader } from 'reactstrap';
 
 // Redux-mock-store
 import configureStore from 'redux-mock-store';
+
+import * as actions from '../../../../action/employeeAction'
+import * as employeeReducer from '../../../../reducers/employeesReducer';
+import axios from 'axios';
+
 // Redux store config
-const store = createStore(rootReducer, applyMiddleware(thunk));
+let store = createStore(rootReducer, applyMiddleware(thunk));
 
 it('Console error check', () => {
     const consoleError = sinon.spy(global.console, 'error'); 
     // console.log(consoleError);
     // expect(consoleError).toBe(null);
-})
+});
 
 describe("Parent component full test", () => {
     let empComponent;
+    let props;
+
     beforeEach(() => {
-        // const actions = {fetchAll: jest.fn()}
-        empComponent = mount(<Provider store={store}><EmployeePage /></Provider>, { lifecycleExperimental: true });
+        props = {
+            fetchAllEmployees: jest.fn((fetchAllEmployees) => fetchAllEmployees),
+            notifyMsg: false
+        }
+        empComponent = mount(<Provider store={store}><EmployeePage {...props}/></Provider>, { lifecycleExperimental: true });
     });
 
-    it("Function calls test", () => {
+    const allOver = () => new Promise((resolve) => setImmediate(resolve));
+    const todos = { data: [{
+        "id": 1,
+        "status": "testActive",
+        "text": "test1"
+    }, {
+        "id": 2,
+        "status": "testComplete",
+        "text": "test2"
+    }]};
+
+    it('renders without crashing', () => {
+        expect(empComponent).toBeDefined();
+    });
+
+    it('componentDidMount check', async () => {
+        let empPage = empComponent.find('EmployeePage');
+        fetch = jest.fn().mockReturnValue(Promise.resolve(todos));
+        await allOver();
+        empPage.update();
+        const spy = sinon.spy(empPage.instance(), 'deleteMultipleEmployeesC');
+        console.log(spy)
+
+    });
+
+    it("Function calls test", async () => {
         // Snapshot check
             const tree = renderer.create(empComponent).toJSON();
             expect(tree).toMatchSnapshot();
@@ -48,23 +83,13 @@ describe("Parent component full test", () => {
             let createPortalFn = ReactDOM.createPortal = (element, node) => element;
     
         // DidMount call check
-            const didMountLf = sinon.spy(empComponent.instance(), 'componentDidMount');
-            const renderFn = sinon.spy(empComponent.instance(), 'render');
-            setTimeout(() => {
-                expect(EmployeePage.prototype.componentDidMount).toHaveProperty('callCount', 1);
-                expect(didMountLf.calledImmediatelyAfter(renderFn)).toBe(true);
-            })
-        
         let empPage = empComponent.find('EmployeePage');
-        // FetchAllEmp function
-            const mockFetchEmployeesFn = sinon.spy(empPage.instance(), 'fetchAllEmployees');
-            // console.log(mockFetchEmployeesFn())
-            // expect(mockFetchEmployeesFn.called).toBe(true); // return false
-    
-        // Refs
-            const setState = sinon.spy(empPage.instance(), 'setState');
-            // expect(setState.called).toBe(true); // return false
-       
+        console.log(empPage.instance().fetchAllEmployees());
+        // Existing check with undefined
+            expect(empPage.instance().deleteEmployeeConfirm()).toBeUndefined(); 
+            expect(empPage.instance().mDeleteEmpId()).toBeUndefined(); 
+            expect(empPage.instance().deleteMultipleEmployeesConfirm()).toBeUndefined(); 
+            expect(empPage.instance().notifyMsgFn()).toBeUndefined(); 
         // Render functions 
             expect(empPage.instance().employeeFormMoalOpen()).toBeDefined(); 
             expect(empPage.instance().employeeFormMoalClose()).toBeDefined();
@@ -73,10 +98,10 @@ describe("Parent component full test", () => {
             expect(empPage.instance().updateEmployee()).toBeDefined();
             expect(empPage.instance().deleteEmployee()).toBeDefined();
             expect(empPage.instance().deleteMultipleEmployeesC()).toBeDefined();
-            
+           
             empComponent.unmount();
     });
-})
+});
 
 describe("EmployeeList child component test", () => {
         let props;
@@ -176,10 +201,10 @@ describe("FormModal child component test", () => {
         it('renders one add button when employeeFormModal value is true', () => {
             formComponent.setProps({ employeeFormModal: true });
             formComponent.find('form').simulate('submit', { preventDefault () {} });
+            formComponent.setState({ errors: {} });
             formComponent.update();
-            formComponent.setState({ errors: {}, data: { empId: "", name: "testname", email: "testemail" } });
-            // expect(props.addEmployee).toBeCalledWith(formComponent.state().data);
-            // expect(props.addEmployee).toHaveBeenCalled(); // Nu
+            // console.log(formComponent.instance());
+            expect(props.addEmployee).toBeDefined(); // Nu
         });
 
         it('renders one update button when employeeFormModal value is true', () => {
@@ -214,4 +239,55 @@ describe("FormModal child component test", () => {
             
                 formComponent.unmount();
         });
+});
+
+describe('Action and reducer test', () => {
+        const mockInitialState = {
+            employees: [],
+            employeeFormModal: false,
+            employee: {}
+        }
+
+        it('should return the initial state', () => {
+            expect(employeeReducer.default(undefined, {})).toEqual(mockInitialState);
+        });
+
+        it('should create an action to get all employees', () => {
+        const employees = [];
+        const expectedAction = {
+            type: actions.GET_ALL_EMPLOYEES,
+            empData: employees
+        }
+        expect(actions.getAllEmployees(employees)).toEqual(expectedAction)
+        });
+        
+        it('should create an action to get particular employee', () => {
+            const employee = {};
+            const expectedAction = {
+            type: actions.GET_ONE_EMPLOYEE,
+            employee
+            }
+            expect(actions.getAnEmployee(employee)).toEqual(expectedAction)
+        })
+  });
+
+describe('action creators', () => {
+      beforeEach(() => {
+        store =  configureStore({});
+      });
+      afterEach(() => {
+        // clear all HTTP mocks after each test
+        // axios.cleanAll();
+      });
+    
+    //   it('creates FETCH_TODO_SUCCESS when fetching to-dos has been done', () => {
+    //     // Simulate a successful response
+    //     axios.get('http://localhost:8000/api/employees/fetchAllEmployees')
+    //       .then(200, [{id: 1, name: "testname1"}, {id: 2, name: "testname2"}]); // Mock reponse code and data
+    
+    //     // Dispatch action to fetch to-dos
+    //     return store.dispatch(actions.getAllEmployees([{id: 1, name: "testname1"}, {id: 2, name: "testname2"}]));
+
+    //     expect(store.dispatch(actions.getAllEmployees([{id: 1, name: "testname1"}, {id: 2, name: "testname2"}]))).toBeDefined()
+    //   })
 });
