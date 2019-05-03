@@ -51,8 +51,14 @@ const FormModal = ({ employeeFormModal, employee, addEmployee, updateEmployee, e
         }
     
         const handleChange = (e) => {
-            // this.setState({ data: {...this.state.data, [e.target.name]: e.target.value } });
-            setState({...state, data: { ...data, [e.target.name] : e.target.value } });
+            setState(...state, { data: { ...data, [e.target.name] : e.target.value } });
+            // let name = e.target.name, value = e.target.value;
+            // setState(prevState => { 
+            //     return { 
+            //         ...prevState, 
+            //         data: { ...data, [name] : value } 
+            //         } 
+            // });
         }
         
         const handleDateChange = (date) => {
