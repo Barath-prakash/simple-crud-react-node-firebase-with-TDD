@@ -2,7 +2,6 @@ import { gql } from 'apollo-server-express';
 
 // GraphQL: TypeDefs
 const TYPEDEFS = gql`
-
 type Query {
     test: String,
     test_query: Test

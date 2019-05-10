@@ -8,7 +8,7 @@ import Validator from 'validator';
 import { MSG } from 'shared/commonMessages/messages';
 moment.suppressDeprecationWarnings = true;
 
-const FormModal = ({ employeeFormModal, employee, addEmployee, updateEmployee, employeeFormMoalClose }) => {
+const FormModal = ({ employeeFormModal, employeeFormMoalClose, employee, addEmployee, updateEmployee }) => {
 
     let stateObj = {
         data: {
@@ -24,7 +24,7 @@ const FormModal = ({ employeeFormModal, employee, addEmployee, updateEmployee, e
         loading: false
     };
    
-    const [state, setState] = useState(stateObj);
+    const [stateVal, setState] = useState(stateObj);
     
     useEffect(() => {
         if(Object.keys(employee).length > 0) {
@@ -51,35 +51,35 @@ const FormModal = ({ employeeFormModal, employee, addEmployee, updateEmployee, e
         }
     
         const handleChange = (e) => {
-            setState(...state, { data: { ...data, [e.target.name] : e.target.value } });
-            // let name = e.target.name, value = e.target.value;
-            // setState(prevState => { 
-            //     return { 
-            //         ...prevState, 
-            //         data: { ...data, [name] : value } 
-            //         } 
-            // });
+            // if(e && stateVal) setState(...stateVal, { data: { ...data, [e.target.name] : e.target.value } });
+            let name = e.target && e.target.name, value = e.target && e.target.value;
+            setState(prevState => { 
+                return { 
+                    ...prevState, 
+                    data: { ...data, [name] : value } 
+                    } 
+            });
         }
         
         const handleDateChange = (date) => {
             if(date !== null && date !== "Invalid date") {
-                setState({...state, data: { ...data, dateOfBirth : date, age: moment().diff(moment(date).format('L'), 'years') } });
+                setState({...stateVal, data: { ...data, dateOfBirth : date, age: moment().diff(moment(date).format('L'), 'years') } });
             } else {
-                setState({...state, data: { ...data, dateOfBirth : "", age: "" } });
+                setState({...stateVal, data: { ...data, dateOfBirth : "", age: "" } });
             }
         }
         
         const handleSubmit = (e) => {
             e.preventDefault();
-            let data = state.data;
+            let data = stateVal.data;
             const errors = validate(data);
-            setState({ ...state, errors });
+            setState({ ...stateVal, errors });
             if(Object.keys(errors).length === 0) {
-                setState({ ...state, loading: true })
-                if(state.data.empId) {
-                    return updateEmployee(data).then(res => handleCloseFormModal()).catch(err => setState({ ...state, loading: false }))
+                setState({ ...stateVal, loading: true })
+                if(stateVal.data.empId) {
+                    return updateEmployee(data).then(res => handleCloseFormModal()).catch(err => setState({ ...stateVal, loading: false }))
                 } else {
-                    return addEmployee(data).then(res => handleCloseFormModal()).catch(err => setState({ ...state, loading: false }))
+                    return addEmployee(data).then(res => handleCloseFormModal()).catch(err => setState({ ...stateVal, loading: false }))
                 }
             }
         }
@@ -124,7 +124,7 @@ const FormModal = ({ employeeFormModal, employee, addEmployee, updateEmployee, e
             setState(stateObj);
         }
 
-        const { data, loading, errors } = state;
+        const { data, loading, errors } = stateVal;
         return (
             <Modal 
                 id="modal"

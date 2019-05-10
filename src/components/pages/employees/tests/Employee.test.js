@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 // Installed plugins 
 import { createStore, applyMiddleware } from 'redux';
@@ -11,8 +11,9 @@ import { wrap } from 'module';
 
 import renderer from 'react-test-renderer';
 import jest from 'jest-mock';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount, /*render*/ } from 'enzyme';
 import sinon from 'sinon';
+import { render, fireEvent, getByTestId } from "react-testing-library";
 
 //Components
 import EmployeePage from '../EmployeePage';
@@ -70,9 +71,17 @@ describe("Parent component full test", () => {
         await allOver();
         empPage.update();
         const spy = sinon.spy(empPage.instance(), 'deleteMultipleEmployeesC');
-        console.log(spy)
+        // console.log(spy)
 
     });
+
+    // it('enzyme should mount object refs', () => {
+    //     const ref = React.createRef()
+    //     const wrapper = mount(<div ref={ref} />)
+    //     const div = wrapper.find('div').first()
+    //     expect(div).toBeTruthy()
+    //     expect(ref).toHaveProperty('current', div.instance())
+    //   })
 
     it("Function calls test", async () => {
         // Snapshot check
@@ -179,46 +188,40 @@ describe("FormModal child component test", () => {
                 addEmployee: jest.fn((addEmployee) => addEmployee),
                 updateEmployee: jest.fn(() => 'updateEmployee')
             };
-            formComponent = shallow(<FormModal {...props} />), { lifecycleExperimental: true };
+            formComponent = shallow(<FormModal props={props} />);
         });
 
         it('Modal component exist check', () => {
             expect(formComponent.find(Modal)).toHaveLength(1);
-            formComponent.setProps({ employeeFormModal: true });
-            let closeFormClickToggle = formComponent.find(ModalHeader);
-            closeFormClickToggle.simulate('click');
-            expect(props.handleCloseFormModal).toBeDefined(); // Nu
         });
 
         it('renders one close button when employeeFormModal value is true', () => {
-            formComponent.setProps({ employeeFormModal: true })
-            const cancelButton = formComponent.find('#cancelButton');
+            formComponent.setProps({ employeeFormModal: true });
+
+            // let closeTriggerModal = formComponent.find('#modal');
+            // closeTriggerModal.simulate('click');
+
+            // let closeTriggerModalHeader = formComponent.find('ModalHeader');
+            // closeTriggerModalHeader.simulate('click');
+            // expect(props.handleCloseFormModal).toHaveBeenCalled();
+
+            let cancelButton = formComponent.find('#cancelButton');
             expect(cancelButton.prop('children').toLowerCase()).toEqual('close');
-            cancelButton.simulate('click');
+            cancelButton.simulate('click');``
+
             expect(props.employeeFormMoalClose).toHaveBeenCalled();
         });
 
         it('renders one add button when employeeFormModal value is true', () => {
             formComponent.setProps({ employeeFormModal: true });
             formComponent.find('form').simulate('submit', { preventDefault () {} });
-            formComponent.setState({ errors: {} });
             formComponent.update();
-            // console.log(formComponent.instance());
             expect(props.addEmployee).toBeDefined(); // Nu
-        });
-
-        it('renders one update button when employeeFormModal value is true', () => {
-            formComponent.setProps({ employeeFormModal: true });
-            let submitBtnForm = formComponent.find('form');
-            submitBtnForm.simulate('submit', { preventDefault () {} });
-            formComponent.setState({ errors: {}, data: { empId: "testId" } })
             expect(props.updateEmployee).toBeDefined(); // Nu
         });
 
         it("renders onchange event handling in form", () => {
-            // console.log(formComponent.state());
-            // formComponent.setState({ errors: {}, data: { empId: "testId" } });
-            // console.log(formComponent.state())
+
             let onChangeNode = formComponent.find('.form-control');
                 onChangeNode.first().simulate("change", { target: { value: "myValue" } }); 
                 onChangeNode.at(1).simulate("change", { target: { value: "myValue" } });
@@ -232,12 +235,7 @@ describe("FormModal child component test", () => {
 
                 let datepicker = formComponent.find('#datepicker');
                 datepicker.simulate("change", { target: { value: "myValue" } }); 
-
-            // Didupdate call check  Nu
-                // const didUpdateLf = sinon.spy(formComponent.instance(), 'componentDidUpdate');
-                // expect(didUpdateLf.calledAfter.bind()).toBeDefined();
-            
-                formComponent.unmount();
+           
         });
 });
 
