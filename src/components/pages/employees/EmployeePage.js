@@ -14,6 +14,8 @@ import FormModal from 'components/forms/employees/FormModal';
 import { fetchAllEmployeesA, employeeFormMoalOpenA, employeeFormMoalCloseA, 
          addEmployeeA, fetchEmployeeA, updateEmployeeA, deleteEmployeeA, deleteMultipleEmployeesA } from 'action/employeeAction';
 
+import { makeSelect } from './modules/selector';
+
 const notifyStyle = {
     NotificationItem: { // Override the notification item
         DefaultStyle: { // Applied to every notification, regardless of the notification level
@@ -171,11 +173,13 @@ class EmployeePage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    let employees = state.employees.employees ? state.employees.employees : [];
-    let employeeFormModal = state.employees.employeeFormModal ? state.employees.employeeFormModal : false;
-    let employee = state.employees.employee ? state.employees.employee : {};
+    // const getBarState = makeSelect();
+    const employeeState = makeSelect()(state.employees);
     return {
-        employees, employeeFormModal, employee
+        employees: employeeState.employees,
+        employeeFormModal: employeeState.employeeFormModal,
+        employee: employeeState.employee
+        
     }
 }
 

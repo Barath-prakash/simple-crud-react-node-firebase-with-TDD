@@ -1,6 +1,6 @@
 import { GET_ALL_EMPLOYEES, EMP_FORM_MODAL_OPEN, EMP_FORM_MODAL_CLOSE, GET_ONE_EMPLOYEE } from "action/employeeAction";
 
-const initialState = {
+export const initialState = {
     employees: [],
     employeeFormModal: false,
     employee: {}
