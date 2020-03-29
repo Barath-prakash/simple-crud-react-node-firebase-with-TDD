@@ -18,7 +18,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "firebase": "^5.9.2",
+    "firebase": "^7.13.1",
     "fs": "0.0.1-security",
     "graphql": "^14.2.1",
     "graphql-tools": "^4.0.4",
@@ -29,9 +29,6 @@
     "presets": [
       "es2015",
       "react"
-    ],
-    "plugins": [
-      "transform-object-rest-spread"
     ]
   },
   "devDependencies": {
