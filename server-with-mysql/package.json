@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.1",
     "bookshelf": "^0.10.4",
     "cors": "^2.8.4",
