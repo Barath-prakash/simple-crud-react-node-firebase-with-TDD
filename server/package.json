@@ -22,7 +22,7 @@
     "fs": "0.0.1-security",
     "graphql": "^14.2.1",
     "graphql-tools": "^4.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "notarealdb": "^0.2.2"
   },
   "babel": {
